@@ -92,8 +92,11 @@ export default function Register() {
 
             await Auth.confirmSignUp(fields.email, fields.confirmationCode);
             await Auth.signIn(fields.email, fields.password);
-             
+
+            // Setting userHasAuthenticated to "True" in userAppContext()
             userHasAuthenticated(true);
+            // Reload the application
+            window.location.reload();
 
         } catch (e) {
 
@@ -167,7 +170,7 @@ function RenderForm(props) {
 
                 { /* Header - Start */}
                 <header className="col-md-9 text-center border-bottom mb-3 mx-auto">
-                    <h1>Larissa</h1>
+                    <h1>Breakday</h1>
                     <p>Already a member? <Link to="/login">Login here!</Link> </p>
                 </header>
                 { /* Header - End */}
@@ -239,6 +242,7 @@ function RenderForm(props) {
                                 autoComplete="new-password"
                                 onChange={handleFieldChange}
                             />
+                            <p><small>* Required numbers, a special character, uppercase letters, & lowercase letters</small></p>
                         </div>
                         { /* Password - End */}
 
@@ -276,7 +280,7 @@ function RenderForm(props) {
                     { /* Footer - Start */}
                     <footer className="p-2  w-100 border-top">
                         <p className="border-bottom pb-3">
-                            <mdall>By registering, you agree to Larissa's <a href="#">Terms of Service</a> and <a href="#">Privacy Notice</a>.</mdall>
+                            <mdall>By registering, you agree to Breakday's <a href="#">Terms of Service</a> and <a href="#">Privacy Notice</a>.</mdall>
                         </p>
                         <Link to="/reset"> Forgot password? </Link>
                         <span> | </span>
@@ -314,7 +318,7 @@ function RenderConfirmationForm(props) {
 
                 { /* Header - Start */}
                 <header className="col-md-10 text-center border-bottom mb-3 mx-auto">
-                    <h1>Larissa</h1> 
+                    <h1>Breakday</h1> 
                     <p>Please, check your email for a confirmation code! </p>
                 </header>
                 { /* Header - End */}
@@ -361,7 +365,7 @@ function RenderConfirmationForm(props) {
                     { /* Lower Section - Start */}
                     <section className="p-2 border-top">
                         <p className="border-bottom pb-3">
-                            <small>By using this application, you agree to Larissa's <a href="#">Terms of Service</a> and <a href="#">Privacy Notice</a>. </small>
+                            <small>By using this application, you agree to Breakday's <a href="#">Terms of Service</a> and <a href="#">Privacy Notice</a>. </small>
                         </p>
 
                         <a href="/login"> Login </a>
